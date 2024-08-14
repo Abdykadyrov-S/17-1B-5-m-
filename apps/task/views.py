@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser, IsAuthentic
 from .models import Task
 from .serializers import TaskSerializer
 from .permissions import IsAdminOrReadOnly
+from django_filters.rest_framework import DjangoFilterBackend
 
 # Create your views here.
 class TaskAPI(GenericViewSet, 
@@ -18,3 +19,5 @@ class TaskAPI(GenericViewSet,
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = (IsAdminOrReadOnly, )
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['title', 'description']

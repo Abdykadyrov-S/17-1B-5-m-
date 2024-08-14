@@ -25,7 +25,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({'confirm_password': "Пароли отличаются"})
         for password in passwords:
             if password in attrs['password']:
-                raise serializers.ValidationError({'confirm_password': "Парол легкий"})
+                raise serializers.ValidationError({'confirm_password': "Пароль легкий"})
         if len(attrs['password']) < 8:
             raise serializers.ValidationError({'password': "меньше 8 символов"})
 
