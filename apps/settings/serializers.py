@@ -14,4 +14,3 @@ class SettingsCreateSerializer(serializers.ModelSerializer):
         model = Settings
         fields = '__all__' 
 
-        

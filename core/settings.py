@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # cors
+    "corsheaders",
+
     # rest
     'rest_framework',
     'drf_yasg',
@@ -63,6 +66,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -150,3 +155,43 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "users.User"
+
+
+# # CORS
+
+# CORS_ALLOWED_ORIGINS = [
+#     "https://example.com",
+#     "https://sub.example.com",
+#     "http://localhost:8080",
+#     "http://localhost:8000",
+#     "http://localhost:3000",
+#     "http://127.0.0.1:9000",
+#     "ngrok",
+# ]
+
+
+# CORS_ALLOW_METHODS = (
+#     "DELETE",
+#     "GET",
+#     "OPTIONS",
+#     "PATCH",
+#     "POST",
+#     "PUT",
+# )
+
+
+# CORS_ALLOWED_ORIGINS = [
+#     "https://read-only.example.com",
+#     "ngrok",
+#     "https://read-and-write.example.com",
+#     "http://localhost:8000",
+#     "http://localhost:3000",
+# ]
+
+# CSRF_TRUSTED_ORIGINS = [
+#     "ngrok",
+#     "https://read-and-write.example.com",
+#     "http://localhost:8000",
+#     "http://localhost:8080",
+#     "http://localhost:3000",
+# ]
